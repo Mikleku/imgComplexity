@@ -6,7 +6,7 @@ import os
 def entropy(fileList):
     entropyList=[]
     for file in fileList:
-        print(file)
+        #print(file)
         image = Image.open(file) 
         imageHSL= image.convert("HSV")
         drawHSL = ImageDraw.Draw(imageHSL) 
@@ -33,6 +33,6 @@ def entropy(fileList):
             if prb[i] != 0:
                 e -= prb[i]*math.log(prb[i])
         e /=math.log(2)
-        entropyList.append(e)
+        entropyList.append(e/8)
     return entropyList    
 

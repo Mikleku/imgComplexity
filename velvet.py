@@ -58,7 +58,8 @@ def dwt2(image, CL):
 def velvet(fileList):
     for file in fileList:
         image = Image.open(file).convert('L')
-        image = image[3,:] / 255.0 # Диапазон яркостей — [0, 1]
+        image = image.load()
+        image = image[3, : ] / 255 # Диапазон яркостей — [0, 1]
         data2 = dwt2(image, CL)
         image.save("v_"+file, "JPEG")
        
